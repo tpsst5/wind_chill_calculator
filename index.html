@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+  <link rel="stylesheet" href="style.css">
+  <title>Wind Chill Calculator</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="heading">Wind Chill Calculator</h2>
+    <form id="form">
+      <div class="selector-btns">
+        <button type="button" id="metric" class="button-primary">METRIC</button>
+        <button type="button" id="imperial">IMPERIAL</button>
+      </div>
+      <h4 id="wind-header">Wind Speed:</h4>
+      <input type="number" id="wind-speed"><span id="speed-label" class="label">km/hr</span>
+      <h4 id="temp-header">Temperature:</h4>
+      <input type="number" id="temp"><span id="temp-label" class="label">C°</span>
+      <br>
+      <button type="button" id="calculate" class="button-primary">Calculate</button>
+      <button id="reset">RESET</button>
+      <br>
+      <input type="number" id="results" placeholder="RESULTS" disabled><span id="results-label" class="label">C°</span>
+    </form>
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>
