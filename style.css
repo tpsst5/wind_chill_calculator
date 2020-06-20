@@ -14,7 +14,7 @@ body {
 
 .container {
   width: 400px;
-  top: 12rem;
+  top: 3rem;
   border: 2px solid #444;
   background: #ebebeb;
   border-radius: 5px;
@@ -57,6 +57,14 @@ body {
 h4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.zip-container {
+  display: flex;
+}
+
+#zip-btn {
+  margin-left: 1rem;
 }
 
 input {
