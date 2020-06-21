@@ -99,6 +99,7 @@ const errorMessage = function (units) {
   // Insert alert
   container.insertBefore(div, form);
   // Clear input entries
+  document.getElementById('zip-input').value = '';
   document.getElementById('wind-speed').value = '';
   document.getElementById('temp').value = '';
   // Timeout after 3 seconds
