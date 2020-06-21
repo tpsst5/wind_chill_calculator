@@ -32,6 +32,53 @@ function selectImperial(e) {
   e.preventDefault();
 }
 
+// Event listener for zip code submission
+document.getElementById('zip-btn').addEventListener('click', submitZip);
+
+// Retrieve weather data from zip code submission
+function submitZip(e) {
+  // Zip code input
+  const zipCode = document.getElementById('zip-input').value;
+  // API URL
+  const apiURL = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=5b4e1bf95349458eb77223608202006&q=${zipCode}&format=json`;
+  // data
+  let zipData
+  // Input vars
+  let wind, temp;
+
+  // Fetch API data by searching zip code
+  async function getData(apiURL) {
+    const response = await fetch(apiURL);
+
+    return response.json()
+  }
+
+  // Assign JSON API data to zipData var
+  async function main() {
+    let zipData = await getData(apiURL);
+    zipData = zipData.data.current_condition[0];
+    // Check if metric or imperial and assign wind and temp vars
+    if (document.getElementById('metric').className === 'button-primary') {
+      wind = zipData.windspeedKmph;
+      temp = zipData.temp_C;
+    } else {
+      wind = zipData.windspeedMiles;
+      temp = zipData.temp_F;
+    }
+    // Display live inputs
+    document.getElementById('wind-speed').value = wind;
+    document.getElementById('temp').value = temp;
+    // Disable all inputs
+    document.getElementById('zip-input').disabled = true;
+    document.getElementById('wind-speed').disabled = true;
+    document.getElementById('temp').disabled = true;
+  }
+  // Call main function and display live temp and wind values
+  main();
+
+  e.preventDefault();
+}
+
 // Creates div to alert user that input is missing
 const errorMessage = function (units) {
   // Create div
