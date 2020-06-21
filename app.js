@@ -39,6 +39,11 @@ document.getElementById('zip-btn').addEventListener('click', submitZip);
 function submitZip(e) {
   // Zip code input
   const zipCode = document.getElementById('zip-input').value;
+  // Check if zip code is valid
+  if (zipCode.length !== 5) {
+    let error = 'zip';
+    return errorMessage(error);
+  }
   // API URL
   const apiURL = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=5b4e1bf95349458eb77223608202006&q=${zipCode}&format=json`;
   // data
@@ -90,6 +95,8 @@ const errorMessage = function (units) {
     div.appendChild(document.createTextNode('Temperature needs to be 10°C or below and wind speed greater than 4.8 km/hr'));
   } else if (units === 'imperial') {
     div.appendChild(document.createTextNode('Temperature needs to be 50°F or below and wind speed greater than 3 mph'));
+  } else if (units === 'zip') {
+    div.appendChild(document.createTextNode('Invalid zip code'));
   } else {
     div.appendChild(document.createTextNode('Wind speed & temperature needed'));
   }
