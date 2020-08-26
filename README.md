@@ -3,6 +3,9 @@
 ## General Information: 
 This takes in two inputs, wind speed and temperature, then calculates the wind chill temperature. You can optionally input a zip code to retrieve live wind and temperature data at that location. Built with Vanilla JavaScript, HTML & CSS.
 
+## Screenshot:
+![Wind chill screenshot](wind_chill_sh.png)
+
 ## See also:
 API used to get weather data: [World Weather Online API](https://www.worldweatheronline.com/developer/)
 
